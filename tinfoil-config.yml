@@ -1,18 +1,14 @@
-# Tinfoil Container Configuration
-# For updates: edit this file, commit, run the workflow (e.g., v0.0.2)
-cvm-version: 0.14.7
+# Regression check for private-registry pulls: the image below is private on
+# GHCR and is only reachable with the organization's registry credential.
+cvm-version: 0.14.9
 cpus: 2
 memory: 8192
 
 containers:
-  - name: "hello-world"
-    image: "ghcr.io/tinfoilsh/tinfoil-containers-hello-world@sha256:c943b1cab16409e2e686ad71deab30364c27421852cdd6b3080df1c7a38331ed"
-    env:
-      - MESSAGE: "Hello from Tinfoil"
-    secrets:
-      - GREETING_TOKEN
+  - name: "app"
+    image: "ghcr.io/tanyav2/simple-container-private@sha256:d699a189a47c0cabfe42f89f41bc99e4d7c43ba47c4efca8b3ec5df4a991510d"
 
 shim:
-  upstream-port: 8080
+  upstream-port: 8000
   paths:
     - /*
