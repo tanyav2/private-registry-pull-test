@@ -1,6 +1,6 @@
 # Regression check for private-registry pulls: the image below is private on
 # GHCR and is only reachable with the organization's registry credential.
-cvm-version: 0.14.9
+cvm-version: 0.14.8
 cpus: 2
 memory: 8192
 
